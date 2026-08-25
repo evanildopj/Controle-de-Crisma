@@ -5,5 +5,5 @@ import react from "@vitejs/plugin-react";
 // (o link final fica seu-usuario.github.io/nome-do-repositorio/).
 export default defineConfig({
   plugins: [react()],
-  base: "/controle-pagamentos/",
+  base: "/Controle-de-Crisma/",
 });
