@@ -1,0 +1,436 @@
+:root {
+  --ink: #161f30;
+  --ink-2: #1e2942;
+  --ink-3: #263155;
+  --line: #384463;
+  --paper: #f2efe6;
+  --paper-dim: #cbc6b6;
+  --gold: #c9a227;
+  --gold-soft: #e4c968;
+  --wine: #8c2f39;
+  --wine-soft: #b1525c;
+  --ivory: #ede6d6;
+  --ok: #4f9d69;
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ---------- Header / masthead ---------- */
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.masthead-seal {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+}
+
+.masthead-titles {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.01em;
+  margin: 0 0 2px;
+}
+
+.masthead .subtitle {
+  font-size: 0.82rem;
+  color: var(--paper-dim);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.masthead-meta {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--paper-dim);
+  letter-spacing: 0.03em;
+}
+
+.masthead-meta .resp-name {
+  color: var(--gold-soft);
+  font-weight: 600;
+}
+
+/* ---------- Tabs (visão geral only) ---------- */
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  padding: 7px 14px;
+  border-radius: 3px 3px 0 0;
+  border: 1px solid var(--line);
+  border-bottom: none;
+  background: var(--ink-2);
+  color: var(--paper-dim);
+  cursor: pointer;
+}
+
+.tab.active {
+  background: var(--ink-3);
+  color: var(--paper);
+}
+
+/* ---------- Summary strip ---------- */
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+
+.summary-item {
+  background: var(--ink-2);
+  padding: 14px 16px;
+}
+
+.summary-item .num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.summary-item .label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--paper-dim);
+  margin-top: 2px;
+}
+
+/* ---------- Toolbar ---------- */
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.84rem;
+  padding: 9px 16px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover {
+  border-color: var(--gold-soft);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.btn-primary:hover {
+  background: var(--gold-soft);
+  border-color: var(--gold-soft);
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--paper-dim);
+  padding: 6px 10px;
+  font-size: 0.76rem;
+}
+
+.btn-ghost:hover {
+  color: var(--paper);
+}
+
+.btn-danger:hover {
+  border-color: var(--wine-soft);
+  color: var(--wine-soft);
+}
+
+/* ---------- Ledger table ---------- */
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.ledger thead th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--paper-dim);
+  padding: 0 12px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ledger tbody tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.ledger tbody tr:hover {
+  background: rgba(201, 162, 39, 0.05);
+}
+
+.ledger td {
+  padding: 12px;
+  vertical-align: middle;
+}
+
+.ledger .nome {
+  font-weight: 600;
+}
+
+.ledger .sacramentos {
+  color: var(--paper-dim);
+  font-size: 0.8rem;
+}
+
+.ledger .valor {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.ledger .tipo-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.ledger .data-limite.atrasado {
+  color: var(--wine-soft);
+}
+
+.row-actions {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+/* ---------- Status stamp ---------- */
+
+.stamp {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 3px;
+  border: 1.5px solid;
+  cursor: pointer;
+  background: transparent;
+  transform: rotate(-1.5deg);
+  transition: transform 0.1s ease;
+}
+
+.stamp:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.stamp.pago {
+  color: var(--ok);
+  border-color: var(--ok);
+}
+
+.stamp.pendente {
+  color: var(--gold-soft);
+  border-color: var(--gold-soft);
+}
+
+/* ---------- Empty state ---------- */
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--paper-dim);
+  border: 1px dashed var(--line);
+}
+
+.empty .btn {
+  margin-top: 14px;
+}
+
+/* ---------- Modal / form ---------- */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 22, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 20;
+}
+
+.modal {
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 420px;
+  padding: 28px;
+}
+
+.modal h2 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0 0 20px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--paper-dim);
+  margin-bottom: 6px;
+}
+
+.field input[type="text"],
+.field input[type="date"],
+.field select {
+  width: 100%;
+  background: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--paper);
+  padding: 9px 10px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.field input:focus-visible,
+.field select:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 1px;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 16px;
+}
+
+.checkbox-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: none;
+  font-size: 0.86rem;
+  color: var(--paper);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+/* ---------- Status / loading ---------- */
+
+.status-line {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--paper-dim);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.error-line {
+  color: var(--wine-soft);
+}
+
+@media (max-width: 640px) {
+  .ledger thead {
+    display: none;
+  }
+  .ledger,
+  .ledger tbody,
+  .ledger tr,
+  .ledger td {
+    display: block;
+    width: 100%;
+  }
+  .ledger tr {
+    padding: 12px 0;
+  }
+  .ledger td {
+    padding: 3px 0;
+  }
+  .row-actions {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+}
